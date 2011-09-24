@@ -37,6 +37,7 @@ public interface ByteArrayConsumer
    *          the index of the first byte to be consumed.
    * @param count
    *          the number of bytes to be consumed
+   * @throws IOException
    */
   void consume(byte[] bytes, int offset, int count) throws IOException;
 }
