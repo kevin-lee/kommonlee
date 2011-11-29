@@ -3,10 +3,13 @@
  */
 package org.elixirian.kommonlee.collect;
 
+import java.util.Collection;
 import java.util.Iterator;
 
 import org.elixirian.kommonlee.type.Condition1;
+import org.elixirian.kommonlee.type.EmptinessCheckable;
 import org.elixirian.kommonlee.type.Function1;
+import org.elixirian.kommonlee.type.LengthMeasurable;
 
 /**
  * <pre>
@@ -18,17 +21,17 @@ import org.elixirian.kommonlee.type.Function1;
  * </pre>
  * 
  * <pre>
- *     ___  _____  __________  ___________ _____  ____
- *    /   \/    / /      \   \/   /_    _//     \/   /
- *   /        /  /    ___/\      / /   / /          /
- *  /        \  /    ___/  \    /_/   /_/          /
- * /____/\____\/_______/    \__//______/___/\_____/
+ *     ___  _____                                _____
+ *    /   \/    /_________  ___ ____ __ ______  /    /   ______  ______
+ *   /        / /  ___ \  \/  //___// //     / /    /   /  ___ \/  ___ \
+ *  /        \ /  _____/\    //   //   __   / /    /___/  _____/  _____/
+ * /____/\____\\_____/   \__//___//___/ /__/ /________/\_____/ \_____/
  * </pre>
  * 
  * @author Lee, SeongHyun (Kevin)
  * @version 0.0.1 (2011-09-18)
  */
-public interface ReadableCollection<E> extends CommonCollection<E>, Iterable<E>, LengthMeasurable
+public interface ReadableCollection<E> extends Kollection<E>, Iterable<E>, LengthMeasurable, EmptinessCheckable
 {
   @Override
   Iterator<E> iterator();
@@ -46,11 +49,29 @@ public interface ReadableCollection<E> extends CommonCollection<E>, Iterable<E>,
   boolean contains(Object element);
 
   @Override
-  boolean containAll(CommonCollection<?> commonCollection);
+  boolean containsAll(Kollection<?> kollection);
 
-  ReadableCollection<E> select(Condition1<E> condition);
+  @Override
+  ReadableCollection<E> select(Condition1<? super E> condition);
 
-  <R> ReadableCollection<R> map(Function1<E, R> function);
+  @Override
+  <R> ReadableCollection<R> map(Function1<? super E, R> function);
 
-  <R> ReadableCollection<R> selectAndMap(Condition1<E> condition, Function1<E, R> function);
+  @Override
+  <R> ReadableCollection<R> mapSelectively(Condition1<? super E> condition, Function1<? super E, R> function);
+
+  @Override
+  E[] toArray();
+
+  @Override
+  E[] toArray(E[] elements);
+
+  @Override
+  Collection<E> convertTo();
+
+  @Override
+  int hashCode();
+
+  @Override
+  boolean equals(Object element);
 }

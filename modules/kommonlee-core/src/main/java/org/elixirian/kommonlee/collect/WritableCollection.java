@@ -3,6 +3,12 @@
  */
 package org.elixirian.kommonlee.collect;
 
+import java.util.Iterator;
+
+import org.elixirian.kommonlee.type.Clearable;
+import org.elixirian.kommonlee.type.EmptinessCheckable;
+import org.elixirian.kommonlee.type.LengthMeasurable;
+
 /**
  * <pre>
  *     ___  _____                                              _____
@@ -13,18 +19,22 @@ package org.elixirian.kommonlee.collect;
  * </pre>
  * 
  * <pre>
- *     ___  _____  __________  ___________ _____  ____
- *    /   \/    / /      \   \/   /_    _//     \/   /
- *   /        /  /    ___/\      / /   / /          /
- *  /        \  /    ___/  \    /_/   /_/          /
- * /____/\____\/_______/    \__//______/___/\_____/
+ *     ___  _____                                _____
+ *    /   \/    /_________  ___ ____ __ ______  /    /   ______  ______
+ *   /        / /  ___ \  \/  //___// //     / /    /   /  ___ \/  ___ \
+ *  /        \ /  _____/\    //   //   __   / /    /___/  _____/  _____/
+ * /____/\____\\_____/   \__//___//___/ /__/ /________/\_____/ \_____/
  * </pre>
  * 
  * @author Lee, SeongHyun (Kevin)
  * @version 0.0.1 (2011-09-18)
  */
-public interface WritableCollection<E> extends CommonCollection<E>, LengthMeasurable, Clearable
+public interface WritableCollection<E> extends Kollection<E>, Iterable<E>, LengthMeasurable, EmptinessCheckable,
+    Clearable
 {
+  @Override
+  Iterator<E> iterator();
+
   @Override
   int length();
 
@@ -38,12 +48,24 @@ public interface WritableCollection<E> extends CommonCollection<E>, LengthMeasur
   boolean contains(Object element);
 
   @Override
-  public boolean containAll(CommonCollection<?> commonCollection);
+  boolean containsAll(Kollection<?> kollection);
+
+  boolean remove(E element);
+
+  boolean removeAll(Kollection<?> elements);
+
+  boolean retainAll(Kollection<?> elements);
 
   @Override
   void clear();
 
   boolean add(E element);
 
-  boolean addAll(CommonCollection<? extends E> commonCollection);
+  boolean addAll(Kollection<? extends E> commonCollection);
+
+  @Override
+  int hashCode();
+
+  @Override
+  boolean equals(Object element);
 }
