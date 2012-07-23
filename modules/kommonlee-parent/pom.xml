@@ -5,7 +5,7 @@
   <groupId>org.elixirian</groupId>
   <artifactId>kommonlee-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.6-SNAPSHOT</version>
+  <version>0.0.7-SNAPSHOT</version>
   <name>KommonLee Multi Project</name>
   <url>http://elixirian.org</url>
 
@@ -40,6 +40,11 @@
       <id>releases</id>
       <name>Kevin's Releases</name>
       <url>http://nexus.lckymn.com/content/repositories/releases</url>
+    </repository>
+    <repository>
+      <id>snapshots</id>
+      <name>Kevin's Snapshots</name>
+      <url>http://nexus.lckymn.com/content/repositories/snapshots</url>
     </repository>
   </repositories>
 </project>
