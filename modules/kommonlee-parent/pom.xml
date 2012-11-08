@@ -29,7 +29,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.6</java.version>
-    <junit.version>4.8.2</junit.version>
+    <junit.version>4.10</junit.version>
   </properties>
   <issueManagement>
     <url>https://trac.elixirian.com/kommonlee</url>
