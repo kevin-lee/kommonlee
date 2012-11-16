@@ -31,8 +31,8 @@
  */
 package org.elixirian.kommonlee.functional.collect;
 
-import org.elixirian.kommonlee.type.filter.Filter1;
 import org.elixirian.kommonlee.type.functional.Condition1;
+import org.elixirian.kommonlee.type.selector.Selector1;
 
 /**
  * <pre>
@@ -55,19 +55,23 @@ import org.elixirian.kommonlee.type.functional.Condition1;
  * @version 0.0.1 (2011-02-25)
  * @param <E>
  */
-public final class ElementCountSelector<E> implements Filter1<Iterable<? extends E>, Condition1<E>, Integer>
+public final class ElementCountSelector<E> implements Selector1<Iterable<? extends E>, Condition1<E>, Integer>
 {
-	@Override
-	public Integer filter(final Condition1<E> condition, final Iterable<? extends E> source)
-	{
-		int count = 0;
-		for (final E e : source)
-		{
-			if (condition.isMet(e))
-			{
-				count++;
-			}
-		}
-		return Integer.valueOf(count);
-	}
+  ElementCountSelector()
+  {
+  }
+
+  @Override
+  public Integer select(final Condition1<E> condition, final Iterable<? extends E> source)
+  {
+    int count = 0;
+    for (final E e : source)
+    {
+      if (condition.isMet(e))
+      {
+        count++;
+      }
+    }
+    return Integer.valueOf(count);
+  }
 }
