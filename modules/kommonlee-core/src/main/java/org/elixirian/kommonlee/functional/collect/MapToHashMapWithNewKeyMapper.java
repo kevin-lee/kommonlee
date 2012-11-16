@@ -69,14 +69,17 @@ import org.elixirian.kommonlee.type.functional.Function1;
 public class MapToHashMapWithNewKeyMapper<K, E, T extends Map<? extends K, ? extends E>, NK, F extends Function1<? super K, NK>>
     extends MapToMapWithNewKeyMapper<K, E, Map<? extends K, ? extends E>, NK, Function1<? super K, NK>, HashMap<NK, E>>
 {
-  public MapToHashMapWithNewKeyMapper(final HashMapCreator<NK, E> mapCreator)
+  MapToHashMapWithNewKeyMapper(final HashMapCreator<NK, E> mapCreator)
   {
     super(mapCreator);
   }
 
   /* @formatter:off */
-	public static <K, E, T extends Map<? extends K, ? extends E>,
-	                 NK, F extends Function1<? super K, NK>>
+	public static <K,
+	               E,
+	               T extends Map<? extends K, ? extends E>,
+	               NK,
+	               F extends Function1<? super K, NK>>
 		MapToHashMapWithNewKeyMapper<K, E, T, NK, F> newInstance(final HashMapCreator<NK, E> mapCreator)
 	{
 		return new MapToHashMapWithNewKeyMapper<K, E, T, NK, F>(mapCreator);
