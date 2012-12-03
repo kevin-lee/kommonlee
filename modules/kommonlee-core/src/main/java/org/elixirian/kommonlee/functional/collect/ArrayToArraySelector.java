@@ -80,9 +80,13 @@ public final class ArrayToArraySelector<E, C extends Condition1<? super E>> impl
         result.add(t);
       }
     }
+    /* @formatter:off */
     @SuppressWarnings("unchecked")
-    final E[] resultArray = (E[]) Array.newInstance(source.getClass()
-        .getComponentType(), result.size());
+    final E[] resultArray = (E[]) Array.newInstance(
+        source.getClass()
+              .getComponentType(),
+        result.size());
+    /* @formatter:on */
     return result.toArray(resultArray);
   }
 }
