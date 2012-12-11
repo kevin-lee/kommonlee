@@ -54,22 +54,22 @@ package org.elixirian.kommonlee.type;
  * 
  * @author Lee, SeongHyun (Kevin)
  * @version 0.0.1 (2010-09-14)
- * @param <L>
- * @param <R>
+ * @param <T1>
+ * @param <T2>
  */
-public interface Pair<L, R>
+public interface Pair<T1, T2>
 {
-	/**
-	 * Returns the first object (L) in this {@link Pair}.
-	 * 
-	 * @return the first object (L) in this {@link Pair}.
-	 */
-	L getFirst();
+  /**
+   * Returns the first object (T1) in this {@link Pair}.
+   * 
+   * @return the first object (T1) in this {@link Pair}.
+   */
+  T1 getValue1();
 
-	/**
-	 * Returns the second object (R) in this {@link Pair}.
-	 * 
-	 * @return the second object (R) in this {@link Pair}.
-	 */
-	R getSecond();
+  /**
+   * Returns the second object (T2) in this {@link Pair}.
+   * 
+   * @return the second object (T2) in this {@link Pair}.
+   */
+  T2 getValue2();
 }
