@@ -76,6 +76,20 @@ public abstract class AbstractKollection<E> implements Kollection<E>
   }
 
   @Override
+  public boolean exists(final Condition1<? super E> seeker)
+  {
+    final Iterator<E> iterator = iterator();
+    while (iterator.hasNext())
+    {
+      if (seeker.isMet(iterator.next()))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
   public boolean contains(final Object element)
   {
     final Iterator<E> iterator = iterator();
