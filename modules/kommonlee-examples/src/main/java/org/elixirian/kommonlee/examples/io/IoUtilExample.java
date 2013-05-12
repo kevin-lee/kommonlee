@@ -143,13 +143,14 @@ public final class IoUtilExample
   private static void readInputStreamTraditional()
   {
     System.out.println("\n>> IoUtilExample.readInputStreamTraditional() <<");
-    final InputStream inputStream = IoUtilExample.class.getResourceAsStream("/test.txt");
-    final int bufferSize = 131072; // 128Ki
+    InputStream inputStream = null;
     InputStream bufferedInputStream = null;
+    final int bufferSize = 131072; // 128Ki
     final List<Byte> byteList = new ArrayList<Byte>();
 
     try
     {
+      inputStream = IoUtilExample.class.getResourceAsStream("/test.txt");
       bufferedInputStream = new BufferedInputStream(inputStream, bufferSize);
       final byte[] buffer = new byte[bufferSize];
       int bytesRead = bufferedInputStream.read(buffer);
