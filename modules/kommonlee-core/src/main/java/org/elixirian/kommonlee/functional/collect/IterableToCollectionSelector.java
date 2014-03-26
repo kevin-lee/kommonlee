@@ -61,7 +61,7 @@ import org.elixirian.kommonlee.type.selector.Selector1;
  * @param <R>
  */
 public class IterableToCollectionSelector<E, T extends Iterable<? extends E>, C extends Condition1<? super E>, R extends Collection<E>>
-    implements Selector1<T, C, R>
+    implements Selector1<C, T, R>
 {
   private final CollectionCreator<E, ? extends R> collectionCreator;
 
@@ -71,7 +71,7 @@ public class IterableToCollectionSelector<E, T extends Iterable<? extends E>, C 
   }
 
   @Override
-  public R select(final C condition, final T source)
+  public R select(final T source, final C condition)
   {
     final R result = collectionCreator.createCollection();
     for (final E element : source)

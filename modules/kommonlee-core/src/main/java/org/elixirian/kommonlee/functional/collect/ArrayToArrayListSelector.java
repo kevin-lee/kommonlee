@@ -30,15 +30,14 @@ import org.elixirian.kommonlee.type.selector.ArraySelector;
  *          type of element to be filtered to remove all the null element in the given array.
  * @param <C>
  */
-public final class ArrayToArrayListSelector<E, C extends Condition1<? super E>> implements
-    ArraySelector<E, C, ArrayList<E>>
+public final class ArrayToArrayListSelector<E> implements ArraySelector<E, Condition1<? super E>, ArrayList<E>>
 {
   ArrayToArrayListSelector()
   {
   }
 
   @Override
-  public ArrayList<E> select(final C condition, final E[] source)
+  public ArrayList<E> select(final E[] source, final Condition1<? super E> condition)
   {
     final ArrayList<E> list = newArrayList();
     for (final E each : source)
