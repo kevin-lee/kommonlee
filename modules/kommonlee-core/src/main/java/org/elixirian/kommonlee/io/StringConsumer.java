@@ -1,0 +1,41 @@
+/*
+ * Copyright 2009 Lee, Seong Hyun (Kevin)
+ *
+ * Licensed under the MIT License. See the LICENSE file in the project root.
+ * SPDX-License-Identifier: MIT
+ */
+package org.elixirian.kommonlee.io;
+
+import java.io.IOException;
+
+/**
+ * <pre>
+ *     ___  _____                                              _____
+ *    /   \/    / ______ __________________  ______ __ ______ /    /   ______  ______  
+ *   /        / _/ __  // /  /   / /  /   /_/ __  // //     //    /   /  ___ \/  ___ \ 
+ *  /        \ /  /_/ _/  _  _  /  _  _  //  /_/ _/   __   //    /___/  _____/  _____/
+ * /____/\____\/_____//__//_//_/__//_//_/ /_____//___/ /__//________/\_____/ \_____/
+ * </pre>
+ * 
+ * <pre>
+ *     ___  _____                                _____
+ *    /   \/    /_________  ___ ____ __ ______  /    /   ______  ______
+ *   /        / /  ___ \  \/  //___// //     / /    /   /  ___ \/  ___ \
+ *  /        \ /  _____/\    //   //   __   / /    /___/  _____/  _____/
+ * /____/\____\\_____/   \__//___//___/ /__/ /________/\_____/ \_____/
+ * </pre>
+ * 
+ * @author Lee, SeongHyun (Kevin)
+ * @version 0.0.1 (2010-07-13)
+ */
+public interface StringConsumer
+{
+  /**
+   * It consumes the given String. How the String value is consumed is all up to the implementation of this interface.
+   *
+   * @param value
+   *          the given String value
+   * @throws IOException
+   */
+  void consume(String value) throws IOException;
+}
