@@ -9,3 +9,22 @@ target/
 project/project/
 ci/
 .DS_Store
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.project
+.classpath
+.externalToolBuilders/
+*.launch
+.buildpath
+.cproject
+.pydevproject
