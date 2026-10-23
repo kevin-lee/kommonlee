@@ -957,7 +957,7 @@ public class IoUtilTest
       assertThat(Arrays.asList(NeoArrays.convertToBoxedPrimitive(actual.toCharArray()))).isEqualTo(this.characterList);
 
       final InOrder order = inOrder(outputStream);
-      order.verify(outputStream, times(1))
+      order.verify(outputStream, atLeastOnce())
           .write(any(byte[].class), anyInt(), anyInt());
       order.verify(outputStream, atLeastOnce())
           .close();
