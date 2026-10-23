@@ -156,7 +156,7 @@ public class CollectionUtilExample
     final Integer[] positiveIntegerArray = selector()
         .fromArray()
         .toArray()
-        .select(POSITIVE_INTEGER, INTEGER_ARRAY);
+        .select(INTEGER_ARRAY, POSITIVE_INTEGER);
     System.out.println("positiveIntegerArray: " + toStringOf(positiveIntegerArray));
 
     final List<Integer> integerList = newArrayList(-100, -55, -32, -21, -17, -10, -3, 0, 1, 15, 33, 77, 999, 1234);
@@ -167,13 +167,13 @@ public class CollectionUtilExample
     final List<Integer> positiveIntegerList = selector()
         .fromIterable()
         .toArrayList()
-        .select(POSITIVE_INTEGER, integerList);
+        .select(integerList, POSITIVE_INTEGER);
     System.out.println("positiveIntegerList: " + positiveIntegerList);
 
     final List<Integer> anotherPositiveIntegerList = selector()
         .fromIterable()
         .toArrayList()
-        .select(POSITIVE_INTEGER, anotherIntegerList);
+        .select(anotherIntegerList, POSITIVE_INTEGER);
     System.out.println("anotherPositiveIntegerList: " + anotherPositiveIntegerList);
     /* @formatter:on */
   }
@@ -229,19 +229,19 @@ public class CollectionUtilExample
     final String[] emailAddressArray = mapper()
         .fromArray()
         .toArray()
-        .map(String.class, PERSON_TO_EMAIL_MAPPER, PERSON_ARRAY);
+        .map(String.class, PERSON_ARRAY, PERSON_TO_EMAIL_MAPPER);
     System.out.println("emailAddressArray: " + toStringOf(emailAddressArray));
 
     final List<String> emailAddressList = mapper()
         .fromIterable()
         .toArrayList()
-        .map(PERSON_TO_EMAIL_MAPPER, PERSON_LIST);
+        .map(PERSON_LIST, PERSON_TO_EMAIL_MAPPER);
     System.out.println("emailAddressList: " + emailAddressList);
 
     final Set<String> emailAddressSet = mapper()
         .fromIterable()
         .toHashSet()
-        .map(PERSON_TO_EMAIL_MAPPER, PERSON_LIST_2);
+        .map(PERSON_LIST_2, PERSON_TO_EMAIL_MAPPER);
     System.out.println("emailAddressSet: " + emailAddressSet);
     /* @formatter:on */
   }
@@ -293,13 +293,13 @@ public class CollectionUtilExample
     final List<String> emailAddressList = mapper()
         .fromArray()
         .toArrayList()
-        .map(PERSON_TO_EMAIL_MAPPER, PERSON_ARRAY);
+        .map(PERSON_ARRAY, PERSON_TO_EMAIL_MAPPER);
     System.out.println("emailAddressList: " + emailAddressList);
 
     final Set<String> emailAddressSet = mapper()
         .fromArray()
         .toHashSet()
-        .map(PERSON_TO_EMAIL_MAPPER, PERSON_ARRAY_2);
+        .map(PERSON_ARRAY_2, PERSON_TO_EMAIL_MAPPER);
     System.out.println("emailAddressSet: " + emailAddressSet);
     /* @formatter:on */
   }
